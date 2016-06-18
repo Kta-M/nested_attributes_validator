@@ -27,15 +27,15 @@ Or install it yourself as:
 validates :children,
           nested_attributes_uniqueness: {
             fields: :field1,
-            ignore_nil: true # the child record will be ignored if the field is nill. (default: false)
+            ignore_nil: true # the child record will be ignored if the field is nil.(default: false)
           }
 
 # uniqueness validation for multiple fields of child model
 validates :children,
           nested_attributes_uniqueness: {
-            fields: [:field1, field2],
+			fields: [:field1, :field2],
             display_field: :field3,  # the error will be added to this field when the validation failed.
-            ignore_nil: true # the child record will be ignored if the all fields are nill.  (default: false)
+            ignore_nil: true # the child record will be ignored if all fields are nil.(default: false)
           }
 ```
 ### nested_attributes_order
@@ -44,16 +44,16 @@ validates :children,
 validates :children,
           nested_attributes_order: {
             fields: :field1,
-            ignore_nil: true, # the child record will be ignored if the field is nil. (default: false)
+            ignore_nil: true, # the child record will be ignored if the field is nil.(default: false)
             condition: lambda{|a, b| a > b} # lambda function for order verification.(default: lambda{|a, b| a < b})
           }
 
 # order validation for multiple fields of child model
 validates :children,
           nested_attributes_order: {
-            fields: [:field1, field2],
+			fields: [:field1, :field2],
             display_field: :field3,  # the error will be added to this field when the validation failed.
-            ignore_nil: true, # the child record will be ignored if the all fields are nil.  (default: false)
+            ignore_nil: true, # the child record will be ignored if the all fields are nil.(default: false)
             condition: lambda{|a, b| a.join > b.join} # lambda function for order verification.(default: lambda{|a, b| a < b})
           }
 ```
