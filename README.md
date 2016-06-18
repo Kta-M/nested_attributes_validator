@@ -1,6 +1,10 @@
 #
 # NestedAttributesValidator
 
+[![Gem Version](https://badge.fury.io/rb/nested_attributes_validator.svg)](https://badge.fury.io/rb/nested_attributes_validator)
+[![Build Status](https://travis-ci.org/Kta-M/nested_attributes_validator.svg?branch=master)](https://travis-ci.org/Kta-M/nested_attributes_validator)
+[![Code Climate](https://codeclimate.com/github/Kta-M/nested_attributes_validator/badges/gpa.svg)](https://codeclimate.com/github/Kta-M/nested_attributes_validator)
+
 Nested Attributes Validation Collection for Rails
 
 ## Installation
