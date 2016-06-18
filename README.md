@@ -1,3 +1,4 @@
+#
 # NestedAttributesValidator
 
 Nested Attributes Validation Collection for Rails
@@ -20,6 +21,51 @@ Or install it yourself as:
 
 ## Usage
 
+### nested_attributes_uniqueness
+```ruby
+# uniqueness validation for one field of child model
+validates :children,
+          nested_attributes_uniqueness: {
+            fields: :field1,
+            ignore_nil: true # the child record will be ignored if the field is nill. (default: false)
+          }
+
+# uniqueness validation for multiple fields of child model
+validates :children,
+          nested_attributes_uniqueness: {
+            fields: [:field1, field2],
+            display_field: :field3,  # the error will be added to this field when the validation failed.
+            ignore_nil: true # the child record will be ignored if the all fields are nill.  (default: false)
+          }
+```
+### nested_attributes_order
+```ruby
+# order validation for one field of child model
+validates :children,
+          nested_attributes_order: {
+            fields: :field1,
+            ignore_nil: true, # the child record will be ignored if the field is nil. (default: false)
+            condition: lambda{|a, b| a > b} # lambda function for order verification.(default: lambda{|a, b| a < b})
+          }
+
+# order validation for multiple fields of child model
+validates :children,
+          nested_attributes_order: {
+            fields: [:field1, field2],
+            display_field: :field3,  # the error will be added to this field when the validation failed.
+            ignore_nil: true, # the child record will be ignored if the all fields are nil.  (default: false)
+            condition: lambda{|a, b| a.join > b.join} # lambda function for order verification.(default: lambda{|a, b| a < b})
+          }
+```
+
+### I18n
+```yaml
+en:
+  errors:
+    messages:
+      nested_attributes_not_unique: "error message for not unique"
+      nested_attributes_invalid_order: "error message for invalid order"
+```
 
 ## Contributing
 
@@ -32,4 +78,6 @@ Or install it yourself as:
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+
 
