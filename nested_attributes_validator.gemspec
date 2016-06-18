@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Nested Attributes Validation Collection for Rails}
   spec.description   = %q{Nested Attributes Validation Collection for Rails}
-  spec.homepage      = "https://github.com/Kta-M/nested_form_validator"
+  spec.homepage      = "https://github.com/Kta-M/nested_attributes_validator"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
