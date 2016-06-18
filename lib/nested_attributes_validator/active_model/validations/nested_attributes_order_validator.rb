@@ -1,11 +1,11 @@
 class NestedAttributesOrderValidator < ActiveModel::EachValidator
 
-  def validate_each(record, attribute, values)
+  def validate_each(record, _attribute, values)
     fields = ([options[:fields]] || [:self]).flatten.map(&:to_s)
 
     h = values.inject({}){|ret, v| ret[v] = fields.map{|f| v.send(f)}; ret}
     if options[:ignore_nil]
-      h = h.reject{|k, v| v.all?(&:nil?)}
+      h = h.reject{|_k, v| v.all?(&:nil?)}
     end
     if fields.size == 1
       h.keys.each {|k| h[k] = h[k].first}
