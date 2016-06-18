@@ -12,14 +12,14 @@ end
 class UserForOrder01 < UserForOrder
   validates :reservations,
             nested_attributes_order: {
-              fields: [:reserved_at]
+              fields: :reserved_at
             }
 end
 
 class UserForOrder02 < UserForOrder
   validates :reservations,
             nested_attributes_order: {
-              fields: [:reserved_at],
+              fields: :reserved_at,
               ignore_nil: true
             }
 end
@@ -27,7 +27,7 @@ end
 class UserForOrder03 < UserForOrder
   validates :reservations,
             nested_attributes_order: {
-              fields: [:reserved_at],
+              fields: :reserved_at,
               condition: lambda{|a, b| a > b}
             }
 end

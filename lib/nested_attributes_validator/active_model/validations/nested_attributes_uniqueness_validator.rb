@@ -1,7 +1,7 @@
 class NestedAttributesUniquenessValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute, values)
-    fields = (options[:fields] || [:self]).map(&:to_s)
+    fields = ([options[:fields]] || [:self]).flatten.map(&:to_s)
 
     # detect duplicated values
     h = values.inject({}){|ret, v| ret[v] = fields.map{|f| v.send(f)}; ret}

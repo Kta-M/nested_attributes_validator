@@ -12,14 +12,14 @@ end
 class UserForUnique01 < UserForUnique
   validates :reservations,
             nested_attributes_uniqueness: {
-              fields: [:reserved_at]
+              fields: :reserved_at
             }
 end
 
 class UserForUnique02 < UserForUnique
   validates :reservations,
             nested_attributes_uniqueness: {
-              fields: [:reserved_at],
+              fields: :reserved_at,
               ignore_nil: true
             }
 end
